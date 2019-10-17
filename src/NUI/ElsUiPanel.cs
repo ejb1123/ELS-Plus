@@ -64,7 +64,8 @@ namespace ELS.NUI
         {
             Utils.DebugWriteLine("Disabling Ui");
             API.SendNuiMessage("{\"type\":\"enableui\", \"enable\":false}");
-            API.SetNuiFocus(false, false);
+            if (_enabled == 2)
+                API.SetNuiFocus(false, false);
             _enabled = 0;
         }
 
@@ -74,7 +75,8 @@ namespace ELS.NUI
         {
             Utils.DebugWriteLine("Showing Ui");
             API.SendNuiMessage("{\"type\":\"enableui\", \"enable\":true}");
-            API.SetNuiFocus(false, false);
+            if (_enabled == 2)
+                API.SetNuiFocus(false, false);
             _enabled = 1;
         }
 
